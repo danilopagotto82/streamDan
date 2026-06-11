@@ -1,1 +1,180 @@
-{"addonName":"AIO - TB_INSTANT","addonDescription":"Ambiente: DaN","addonLogo":"https://raw.githubusercontent.com/Viren070/AIOStreams/main/assets/logo.png","services":[],"addons":[{"id":"torrentio","options":{"language":"brazilian,portuguese,english","exclude":"cam,ts,telesync,telecine,screener,scr"}},{"id":"comet","options":{"language":"brazilian,portuguese,english","exclude":"cam,ts,telesync,telecine,screener,scr"}},{"id":"mediafusion","options":{"language":"brazilian,portuguese,english","exclude":"cam,ts,telesync,telecine,screener,scr"}},{"id":"meteor","options":{"language":"brazilian,portuguese,english","exclude":"cam,ts,telesync,telecine,screener,scr"}},{"id":"torz","options":{"language":"brazilian,portuguese,english","exclude":"cam,ts,telesync,telecine,screener,scr"}}]}
+{
+  "metadata": {
+    "id": "template-tb_instant-1781207971576",
+    "name": "TB_INSTANT (DaN)",
+    "description": "Template construído perfeitamente via AIO Premium Pro.",
+    "source": "external",
+    "author": "Dashboard",
+    "version": "1.0.0",
+    "category": "Free",
+    "serviceRequired": false,
+    "setToSaveInstallMenu": true
+  },
+  "config": {
+    "trusted": false,
+    "showChanges": false,
+    "addonName": "AIO - TB_INSTANT",
+    "addonLogo": "https://raw.githubusercontent.com/Viren070/AIOStreams/refs/heads/main/packages/frontend/public/logo.png",
+    "addonDescription": "Gerado via AIO Premium Pro. Ambiente: DaN",
+    "excludedResolutions": [],
+    "includedResolutions": [],
+    "requiredResolutions": [],
+    "preferredResolutions": [
+      "2160p",
+      "1440p",
+      "1080p",
+      "720p",
+      "Unknown"
+    ],
+    "excludedQualities": [
+      "TC",
+      "SCR",
+      "CAM",
+      "TS"
+    ],
+    "includedQualities": [],
+    "requiredQualities": [],
+    "preferredQualities": [
+      "BluRay REMUX",
+      "BluRay",
+      "WEB-DL",
+      "WEBRip",
+      "HDRip",
+      "HC HD-Rip",
+      "DVDRip",
+      "HDTV",
+      "Unknown"
+    ],
+    "preferredLanguages": [
+      "Portuguese (Brazil)",
+      "Portuguese",
+      "Dual Audio",
+      "English"
+    ],
+    "preferredSubtitles": [
+      "Portuguese (Brazil)",
+      "Portuguese"
+    ],
+    "excludedStreamTypes": [],
+    "includedStreamTypes": [],
+    "requiredStreamTypes": [],
+    "preferredStreamTypes": [
+      "usenet",
+      "debrid",
+      "p2p",
+      "http",
+      "live"
+    ],
+    "excludedStreamExpressions": [
+      {
+        "expression": "count(quality(streams,'CAM','TS','TC','SCR')) > 0 ? quality(streams,'CAM','TS','TC','SCR') : []",
+        "enabled": true
+      }
+    ],
+    "formatter": {
+      "id": "custom",
+      "definitions": {
+        "custom": {
+          "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','🔥 4K UHD')::replace('1440p','✨ QHD')::replace('1080p','🚀 FHD')::replace('720p','💿 HD')::replace('576p','💩 Low Quality')::replace('480p','💩 Low Quality')::replace('360p','💩 Low Quality')::replace('240p','💩 Low Quality')::replace('144p','💩 Low Quality')}\"||\"💩 Desconhecido\"]}\n{service.cached::istrue[\"⚡Play Instantâneo\"||\"⌛ Requer Download\"]}",
+          "description": "\n{stream.title::exists[\"🎬 {stream.title::title} \"||\"\"]}{stream.year::exists[\"({stream.year})\"||\"\"]}\n\n{stream.formattedSeasons::exists[\"🍂 {stream.formattedSeasons} \"||\"\"]}{stream.formattedEpisodes::exists[\"🎞️ {stream.formattedEpisodes}\\n\"||\"\\n\"]}{stream.seadexBest::istrue[\"🎚️ Best Release\\n\"||\"\"]}{stream.duration::>0[\"⏱️ {stream.duration::time}\\n\"||\"\"]}\n\n{stream.filename::~extended[\"⏩ Versão Estendida \"||\"\"]}{stream.filename::~theatrical[\"🎭 Versão de Cinema \"||\"\"]}{stream.filename::~director[\"🎬 Versão do Diretor \"||\"\"]}{stream.visualTags::exists[\"✨ Imagem: {stream.visualTags::join(' • ')}\\n\"||\"\"]}{stream.audioTags::exists[\"🎧 Áudio: {stream.audioTags::join(' • ')}\\n\"||\"\"]}{stream.languageEmojis::exists[\"🌎 Idiomas: {stream.languageEmojis::join(' • ')}\\n\"||\"\"]}{stream.subtitleEmojis::exists[\"🔤 Legendas: {stream.subtitleEmojis::join(' • ')}\\n\"||\"\"]}{stream.size::exists[\"💾 Tamanho: {stream.size::bytes}\"||\"\"]}\n\n{stream.releaseGroup::exists[\"📁 Grupo: {stream.releaseGroup}\"||\"\"]}{stream.indexer::exists::and::stream.type::=usenet[\" · {stream.indexer}\"||\"\"]}"
+        }
+      }
+    },
+    "services": [
+      {
+        "id": "realdebrid",
+        "enabled": false,
+        "credentials": {}
+      },
+      {
+        "id": "torbox",
+        "enabled": false,
+        "credentials": {}
+      }
+    ],
+    "presets": [
+      {
+        "type": "torrentio",
+        "instanceId": "8e06",
+        "enabled": true,
+        "options": {
+          "name": "Torrentio",
+          "timeout": 8000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false,
+          "exclude": "CAM,TS,Telesync,Telecine,SCR,Screener",
+          "language": "brazilian,portuguese,english"
+        }
+      },
+      {
+        "type": "comet",
+        "instanceId": "4764",
+        "enabled": true,
+        "options": {
+          "name": "Comet",
+          "timeout": 8000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false,
+          "removeTrash": true,
+          "exclude": "CAM,TS,Telesync,Telecine,SCR,Screener",
+          "language": "brazilian,portuguese,english"
+        }
+      },
+      {
+        "type": "mediafusion",
+        "instanceId": "4e7d",
+        "enabled": true,
+        "options": {
+          "name": "MediaFusion",
+          "timeout": 8000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false,
+          "exclude": "CAM,TS,Telesync,Telecine,SCR,Screener",
+          "language": "brazilian,portuguese,english"
+        }
+      },
+      {
+        "type": "meteor",
+        "instanceId": "db1f",
+        "enabled": true,
+        "options": {
+          "name": "Meteor",
+          "timeout": 8000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false,
+          "exclude": "CAM,TS,Telesync,Telecine,SCR,Screener",
+          "language": "brazilian,portuguese,english"
+        }
+      },
+      {
+        "type": "stremthruTorz",
+        "instanceId": "0a44",
+        "enabled": true,
+        "options": {
+          "name": "StremThru Torz",
+          "timeout": 8000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false,
+          "exclude": "CAM,TS,Telesync,Telecine,SCR,Screener",
+          "language": "brazilian,portuguese,english"
+        }
+      }
+    ],
+    "catalogModifications": []
+  }
+}
